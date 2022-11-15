@@ -10,11 +10,11 @@ const User = mongoose.model('images')
 const upload = require('./Middleware/Multer')
 const cloudinary = require('./Middleware/Cloudinary')
 
-let Port = 4000;
+let Port = 4003;
 
 App.use(bodyParser.json());
 
-App.post('/' , upload , async (req,res) => {
+App.post("" , upload , async (req,res) => {
     const result = await cloudinary.uploader.upload(req.file.path)
     const user = new User({
         name: req.body.name,
@@ -33,7 +33,7 @@ App.post('/' , upload , async (req,res) => {
     })
 })
 
-App.get("/home", (req, res) => {
+App.get("", (req, res) => {
     res.send("Pakistan Zindabad")
 })
 
